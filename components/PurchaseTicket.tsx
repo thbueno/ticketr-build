@@ -7,6 +7,7 @@ import { useQuery } from "convex/react";
 import { Ticket } from "lucide-react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import ReleaseTicket from "./ReleaseTicket";
 
 function PurchaseTicket({ eventId }: { eventId: Id<"events"> }) {
   const router = useRouter();
@@ -91,6 +92,13 @@ function PurchaseTicket({ eventId }: { eventId: Id<"events"> }) {
                 ? "Redirecting to checkout..."
                 : "Purchase Your Ticket Now →"}
             </button>
+
+            <div className="mt-4">
+              <ReleaseTicket
+                eventId={eventId}
+                waitingListId={queuePosition._id}
+              />
+            </div>
           </div>
         </div>
       </div>

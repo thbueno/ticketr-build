@@ -6,7 +6,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { useStorageUrl } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
 import { useQuery } from "convex/react";
-import { CalendarDays, MapPin } from "lucide-react";
+import { CalendarDays, MapPin, Ticket } from "lucide-react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 
@@ -83,6 +83,15 @@ export default function EventPage() {
                   <span className="text-sm font-medium">Location</span>
                 </div>
                 <p className="text-gray-900">{event.location}</p>
+              </div>
+
+              {/* Price Grid */}
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <div className="flex items-center text-gray-600 mb-1">
+                  <Ticket className="w-5 h-5 mr-2 text-blue-600" />
+                  <span className="text-sm font-medium">Price</span>
+                </div>
+                <p className="text-gray-900">£{event.price.toFixed(2)}</p>
               </div>
 
               {/* ------------ */}

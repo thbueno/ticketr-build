@@ -175,5 +175,16 @@ export const joinWaitingList = mutation({
         status: WAITING_LIST_STATUS.WAITING, // Mark as waiting
       });
     }
+
+    // Return appropriate status message
+    return {
+      success: true,
+      status: available
+        ? WAITING_LIST_STATUS.OFFERED // If available, status is offered
+        : WAITING_LIST_STATUS.WAITING, // If not available, status is waiting
+      message: available
+        ? "Ticket offered - you have 15 minutes to purchase"
+        : "Added to waiting list - you'll be notified when a ticket becomes available",
+    };
   },
 });
